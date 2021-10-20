@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="./css/bootstrap.min.css" rel ="stylesheet">
+        <script type="text/javascript">
+ 
+            function validateForm(){
+
+                var un = document.frmLogin.uname.value;
+                var pwd = document.frmLogin.pwd.value;
+
+                
+                if(un==null || un==""){
+                    alert("Name can't be blank!");
+                    document.frmLogin.uname.focus();
+                    return false;
+                }
+                else if(pwd.length<6){
+                    alert("Password must at least 6 characters long.");  
+                    document.frmLogin.pwd.focus();
+                    return false;
+                }
+            }
+
+    
+
+  </script>
+        <title> Login Here</title>
+</head>
+<body  bgcolor ="lightblue">
+    <h1 align = "center"> Login Form</h1>
+    <form name ="frmLogin" method= "post" action ="index.html"
+    onsubmit = "return validateForm()">
+
+    <table align = "center" cellpadding ="8">
+        <TR>
+            <td> Name</td>
+            <td> <input type="text" name ="uname" autocomplete="off" class="form-control"  
+                required   > </td>
+
+        </TR>
+  <TR>
+            <td> Password</td>
+            <td> <input type="password" name ="pwd" class="form-control"
+                autocomplete="off" oninvalid = "this.setCustomValidity('enter password')" 
+                oninput ="setCustomValidity('')"required></td>
+
+                
+        </TR>
+        <TR>
+            <td></td>
+            <td> <input type="submit" name ="login" value = "Login" class="btn bg-primary"> 
+                </td>
+                
+                
+        </TR>
+
+
+    </table>
+
+<form>
+</body>
+</html>
