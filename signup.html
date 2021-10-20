@@ -1,240 +1,60 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta> 
-        <title> Registration Page</title>
-        <link href="./css/bootstrap.min.css" rel ="stylesheet">
-    
+
+<head>
+    <meta>
+    <title> Registration Page</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+
     <style>
-        .required{
+        .required {
             color: red;
         }
     </style>
-    
-    
-    
-    <script type ="text/javascript">
-     function matchPassword(){
-
-        var firstpassword = document.frmReg.password.value;
-        var secondpassword = document.frmReg.confirm.value;
-
-if (firstpassword== secondpassword){
-    return true;
-} else {
-    alert("password must be same")
-    document.getElementById("textconfirm").focus()
-    return false;
-}
 
 
-     }
 
-   function getData()
-   {
-      var name = document.getElementById("txtName").value;
-      var country = document.getElementById("selCountry").value;
-      const email = document.getElementById("txtEmail").value;
-      const password =   document.getElementById("txtPassword").value;
-      var phone  = document.getElementById("txtPhone").value;
-      var dob = document.getElementById("dateBirthday").value;
-  
-    consol.log(email)
-    cosole.log(password)
+    <script type="text/javascript">
+        function matchPassword() {
 
-   localStorage.setItem("txtNam",name);
-   localStorage.setItem("selCountr",country);
-   localStorage.setItem("txtEmai",email);
-   localStorage.setItem("txtPasswor",password);
-   localStorage.setItem("txtPhon",phone);
-   localStorage.setItem("dateBirthda",dob);
+            var firstpassword = document.frmReg.password.value;
+            var secondpassword = document.frmReg.confirm.value;
 
+            if (firstpassword == secondpassword) {
+                return true;
+            } else {
+                alert("password must be same")
+                document.getElementById("textconfirm").focus()
+                return false;
+            }
+        }
 
-}
+        function getData() {
+            var email = document.getElementById("txtemail").value;
+            var password = document.getElementById("txtPassword").value;
+
+            localStorage.setItem("email", email);
+            localStorage.setItem("txtPassword", password);
+        }
     </script>
-    
+
 </head>
-    <body>
-        <div class="container">
-        
-        <div class ="form-group mx-auto" >
-            <h2> <i>Sign Up Here</i> </h2> 
-          <!-- entry form-->   
-        <form id ="frmReg" name ="frmReg" method ="get"
-        action = "sign.html"
-        onsubmit="return matchPasssword()">
-        
-        <table class = "table table-striped">
-            <tr>
-                <td>
-                    <label for="txtname"> Name:
-                         <span class = "required">*</span>
-                        </label>
-                </td>
-                <td><input type="text" id ="txtName" name ="name"
-                    required placeholder="Enter Name"
-                    autocomplete="off"
-                    pattern="[A-Za-z0-9]+" autofocus class="formcontrol"></td>
-                
-            </tr>
-            <!-- zip-->
-            <tr>
-                <td>
-                    <label for="txtname"> Zip Code:
-                         <span class = "required">*</span>
-                        </label>
-                </td>
-                <td><input type="text" id ="txtZipcode" name ="zipcode"
-                    required placeholder="Enter a 5-digit code"
-                    autocomplete="off"
-                    pattern="^\d{5}$" 
-                    oninvalid = "this.setCustomValidity('Enter a 5-digit zipcode')"
-                    autofocus class="formcontrol"
-                    oninput = "setCustomValidity('')">
-                </td>
-                
-            </tr>
-            <!--country-->
-            <tr>
-                <td> Country <span class = "required">*</span></td>
-                <td>
-                    <select id="selCountry" name = "country"
-                    required
-                    class="form-control">
-                    <option value="selected"> Please Select</option>
-                    <option value="Australia"> Australia</option>
-                    <option value="Srilanka"> SriLanka</option>
-                    <option value="india">  India</option>
-                    <option value="canada"> Canada</option>
-                    <option value="NewZeland"> NewZeland</option>
-                </select>
-                </td>
-            </tr>
-            <!--Gender-->
-        <tr>
-            <td>
-                Gender <span class = "required">*</span>
-            </td>
-            <td>
-                <div class = "form-check form-check-inline">
-                    <label class="form-check-label lb-lg">
-                        <input type="radio" name ="gender" value ="m" required>
-                    Male </label>
-                </div>
-                <div class = "form-check form-check-inline">
-                    <label class="form-check-label lb-lg">
-                        <input type="radio" name ="gender" value ="f" required>
-                    Female </label>
-                </div>
-         
-            </td>
-        </tr>
- <!--Prefrences-->
-        <tr>
-            <td> Preferences<span class = "required">*</span></td>
-           <td>
-               <div class="form-check form-check-inline">
-                <label class="form-check-label lb-lg">
-                    <input type="checkbox" name ="color" value ="red" required>
-                Red </label>
 
-               </div>
-           
-           
-            <div class="form-check form-check-inline">
-             <label class="form-check-label lb-lg">
-                 <input type="checkbox" name ="color" value ="green" required>
-             Green</label>
+<body>
+    <div class="container">
 
-            </div>
-        
-            <div class="form-check form-check-inline">
-             <label class="form-check-label lb-lg">
-                 <input type="checkbox" name ="color" value ="blue" required>
-             Blue</label>
-
-            </div>
-        </td>
-    
-       
-       
-        </tr>
-<tr>
-    <td>
-        <label for="txtPhone">Phone<span class = "required">*</span></label>
-    </td>
-    <td>
-        <input type="tel" class="form-control" id="txtPhone"
-        name ="phone" required placeholder="Enter Phone Number eg-987-654-3210"
-      pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"  >
-   
-    
-    
-    </td>
-</tr>
-<!--email-->
-<tr>
-    <td> <label for="txtEmail">
-        Email <span class="required">*</span>
-    </label></td>
-    <td>
-        <input type="email"class="form-control" id="txtemail" required
-        name ="email"  placeholder="Enter Email Adress">
-
-    </td>
-</tr>
-<!--password-->
-<tr>
-    <td> <label for="txtPassword">Password <span class="required">*</span></label></td>
-</td>
-<td>
-    <input type="password" id="txtPassword" name ="password" required class= "form-control"
-    pattern="^\w{6,8}$" placeholder="Enter 6-8 characters"/>
-</td>
-
-</tr>
-
-<tr>
-    <td> <label for="txtVerify">Confirm Password <span class="required">*</span></label></td>
-</td>
-<td>
-    <input type="password" id="txtconfirm" name ="confirms" required class= "form-control"
-    pattern="^\w{6,8}$" placeholder="Enter 6-8 characters"/>
-</td>
-
-</tr>
-<tr>
-    <td>
-        <label for="dateBirthday"> DoB
-            <span class="required">*</span>
-        </label>
-    </td>
-    <td>
-        <input type="date" id ="dateBirthday" name="birthday" required
-        class="form-control">
-    </td>
-</tr>
- <!--buttons-->
- <tr>
-     <td>&nbsp;</td>
-     <td>
-         <input type="submit" value="SEND" id="btnSubmit"
-         onclick="getData()"
-         class="btn btn-primary btn-lg">
-         <input type="reset" value ="CLEAR" id="btnReset" 
-         class="btn btn-secondary btn-lg">
-     </td>
- </tr>
-        </table>
-    
-    
-    
-    
-    
-    
-    </form>
-
+        <div class="form-group mx-auto">
+            <h2> <i>Sign Up Here</i> </h2>
+            <!-- entry form-->
+            <form id="frmReg" name="frmReg" method="get" action="sign.html">
+                <input type="email"class="form-control" id="txtemail" required
+                name ="email"  placeholder="Enter Email Adress">
+                <input type="password" id="txtPassword" name ="password" required class= "form-control"
+                pattern="^\w{6,8}$" placeholder="Enter 6-8 characters"/>
+                <input type="submit" value="SEND" id="btnSubmit" onclick='getData()' class="btn btn-primary btn-lg">
+            </form>
         </div>
     </div>
-    </body>
+</body>
+
 </html>

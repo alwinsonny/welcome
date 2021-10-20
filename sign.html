@@ -22,6 +22,20 @@
                 }
             }
 
+            function loginPost (){
+                var email = localStorage.getItem('email')
+                var password = localStorage.getItem('txtPassword')
+
+                var loginemail = document.getElementById("loginemail").value;
+                var loginpassword = document.getElementById("loginpassword").value;
+
+                if ( loginpassword === password){
+                    alert('password is correct')
+                   
+                } else {
+                    alert('password is wrong')
+                }
+            }
     
 
   </script>
@@ -29,19 +43,19 @@
 </head>
 <body  bgcolor ="lightblue">
     <h1 align = "center"> Login Form</h1>
-    <form name ="frmLogin" method= "post" action ="index.html"
+    <form name ="frmLogin" method= "post"
     onsubmit = "return validateForm()">
 
     <table align = "center" cellpadding ="8">
         <TR>
             <td> Name</td>
-            <td> <input type="text" name ="uname" autocomplete="off" class="form-control"  
+            <td> <input type="text" name ="uname" autocomplete="off" class="form-control"  id='loginemail'
                 required   > </td>
 
         </TR>
   <TR>
             <td> Password</td>
-            <td> <input type="password" name ="pwd" class="form-control"
+            <td> <input type="password" name ="pwd" class="form-control" id="loginpassword"
                 autocomplete="off" oninvalid = "this.setCustomValidity('enter password')" 
                 oninput ="setCustomValidity('')"required></td>
 
@@ -49,7 +63,8 @@
         </TR>
         <TR>
             <td></td>
-            <td> <input type="submit" name ="login" value = "Login" class="btn bg-primary"> 
+            <td>
+                 <input type="submit" name ="login" value = "Login" class="btn bg-primary" onclick="loginPost()"> 
                 </td>
                 
                 
